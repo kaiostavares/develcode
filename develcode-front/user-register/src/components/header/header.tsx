@@ -1,13 +1,12 @@
 import { AnchorLink } from "./anchorLink";
 import phoneSvg from '../../assets/header/phone.svg'
 import whatsSvg from '../../assets/header/whatsapp.svg'
-import facebookSvg from '../../assets/header/facbeook.svg'
+import facebookSvg from '../../assets/header/facbeook.svg' 
 import linkedinSvg from '../../assets/header/linkedin.svg'
-
 
 export function Header(){
   return(
-    <div className="flex items-center gap-5 py-2 justify-between position">
+    <div className="flex flex-col md:flex-row items-center gap-5 py-2 justify-between position">
         <a href="/">
           <img src="https://media.licdn.com/dms/image/C4D0BAQFg5qRKjRcGVg/company-logo_200_200/0/1630460188565/develcode_logo?e=1721865600&v=beta&t=TYb1Qx8VuPNaW8i_GUPcnVnmHQq8gaz_NesYMFshmZQ" alt="Develcode logo" className="w-28"/>
         </a>

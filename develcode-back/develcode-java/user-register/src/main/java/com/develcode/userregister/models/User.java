@@ -1,5 +1,6 @@
 package com.develcode.userregister.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,7 +28,7 @@ public class User {
   private String code;
 
   @Column(name = "birth_date", nullable = false)
-  private LocalDateTime birthDate;
+  private LocalDate birthDate;
 
   @Column(name = "user_name", nullable = false)
   private String userName;
