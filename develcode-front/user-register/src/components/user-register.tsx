@@ -56,10 +56,8 @@ export function UserRegister() {
         });
 
         if (response.ok) {
-          // Redirecionar em caso de sucesso
           window.location.href = '/';
         } else if (response.status === 409) {
-          // Mostrar erro de conflito de username
           setUsernameError(true);
         }
       } catch (error) {
