@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { UserList } from "./components/user-list";
 import ErrorPage from "./error-page";
 import { UserRegister } from "./components/user-register";
-
+import { UserEdit } from "./components/user-edit_delete";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/users/signup",
     element: <UserRegister/>
+  },
+  {
+    path: "/users/:userId/edit", 
+    element: <UserEdit/> 
   }
 ]);
 

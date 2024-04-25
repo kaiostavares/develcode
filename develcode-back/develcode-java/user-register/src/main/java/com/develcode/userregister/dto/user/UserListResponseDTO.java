@@ -2,7 +2,7 @@ package com.develcode.userregister.dto.user;
 
 import java.util.List;
 
-public record UserListRequestDTO(
-  List<UserRequestDTO> users, int total
+public record UserListResponseDTO(
+  List<UserResponseDTO> users, int total
 ) { 
 }

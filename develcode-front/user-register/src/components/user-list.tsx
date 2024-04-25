@@ -185,12 +185,14 @@ export function UserList() {
                 <TableCell>{user.birthDate}</TableCell>
 
                 <TableCell>
-                  <IconButton
-                    transparent
-                    className="bg-black/20 border border-white/10 rounded-md p-1.5"
-                  >
-                    <Pencil className="size-4" />
-                  </IconButton>
+                  <Link to={`/users/${user.id}/edit`}>
+                    <IconButton
+                      transparent
+                      className="bg-black/20 border border-white/10 rounded-md p-1.5"
+                    >
+                      <Pencil className="size-4" />
+                    </IconButton>
+                  </Link>
                 </TableCell>
               </TableRow>
             );
