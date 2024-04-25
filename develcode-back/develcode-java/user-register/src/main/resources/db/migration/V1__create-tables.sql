@@ -1,0 +1,17 @@
+CREATE TABLE users(
+  id VARCHAR(255) NOT NULL PRIMARY KEY,
+  code VARCHAR(255) NOT NULL,
+  user_name VARCHAR(255) NOT NULL,
+  birth_date TIMESTAMP NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE user_image(
+  id VARCHAR (255) NOT NULL PRIMARY KEY,
+  image_base64 TEXT NOT NULL,
+  user_id VARCHAR(255) NOT NULL,
+  CONSTRAINT userImage_user_id_fkey FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+CREATE UNIQUE INDEX users_code_key ON users(code);
+CREATE UNIQUE INDEX userImage_user_id_key ON user_image(user_id);
