@@ -99,4 +99,9 @@ public class UserService {
     }
     this.userImageRespository.save(userImage);
   }
+
+  public void deleteUserById(String userId){
+    var user = this.userRepository.findById(userId).orElseThrow(()->new UserNotFoundException("User with id " + userId + " not exists!"));
+    this.userRepository.delete(user);
+  }
 }

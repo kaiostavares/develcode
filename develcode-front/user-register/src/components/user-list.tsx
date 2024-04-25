@@ -4,6 +4,7 @@ import {
   ChevronsLeft,
   ChevronsRight,
   Pencil,
+  Trash2,
 } from "lucide-react";
 import { IconButton } from "./icon-button";
 import { Table } from "./table/table";
@@ -103,6 +104,29 @@ export function UserList() {
     setCurrentPage(page + 1);
   }
 
+  function deleteUser(
+    userId: string
+  ): React.MouseEventHandler<HTMLButtonElement> {
+    return () => {
+      const url = `http://localhost:8080/users/${userId}`;
+      fetch(url, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Erro ao excluir usuário");
+          }
+          console.log("Usuário excluído com sucesso");
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error("Erro ao excluir usuário:", error);
+        });
+    };
+  }
   function getImageType(base64String: string): string {
     const base64Header = base64String.substring(0, 30);
 
@@ -185,14 +209,20 @@ export function UserList() {
                 <TableCell>{user.birthDate}</TableCell>
 
                 <TableCell>
-                  <Link to={`/users/${user.id}/edit`}>
+                  <div className="flex gap-4">
+                    <Link to={`/users/${user.id}/edit`}>
+                      <IconButton className="bg-black/20 border border-white/10 rounded-md p-1.5">
+                        <Pencil className="size-4" />
+                      </IconButton>
+                    </Link>
                     <IconButton
-                      transparent
+                      onClick={deleteUser(user.id)}
+                      secondary
                       className="bg-black/20 border border-white/10 rounded-md p-1.5"
                     >
-                      <Pencil className="size-4" />
+                      <Trash2 className="size-4" />
                     </IconButton>
-                  </Link>
+                  </div>
                 </TableCell>
               </TableRow>
             );

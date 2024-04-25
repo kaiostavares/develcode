@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { UserList } from "./components/user-list";
 import ErrorPage from "./error-page";
 import { UserRegister } from "./components/user-register";
-import { UserEdit } from "./components/user-edit_delete";
+import { UserEdit } from "./components/user-edit";
 
 const router = createBrowserRouter([
   {

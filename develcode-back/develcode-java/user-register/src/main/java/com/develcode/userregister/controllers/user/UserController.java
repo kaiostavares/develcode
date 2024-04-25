@@ -13,6 +13,7 @@ import com.develcode.userregister.services.user.UserService;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,6 +55,12 @@ public class UserController {
   public ResponseEntity updateUser(@PathVariable String userId, @RequestBody UserRequestDTO body) {      
       this.userService.updateUser(userId, body);
       return ResponseEntity.ok().build();
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity deleteUser(@PathVariable("id") String userId) {
+    this.userService.deleteUserById(userId);
+    return ResponseEntity.ok().build();  
   }
   
 }
